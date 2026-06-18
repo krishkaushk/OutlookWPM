@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Outlook WPM</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="outlook-backdrop">
+
+    <!-- Application title bar -->
+    <div class="ob-appbar">
+      <div class="ob-appbar-brand">
+        <div class="ob-brand-icon">
+          <svg width="18" height="18" viewBox="0 0 16 16" fill="currentColor">
+            <rect x="0.5" y="0.5" width="4" height="4" rx="0.5"/>
+            <rect x="6" y="0.5" width="4" height="4" rx="0.5"/>
+            <rect x="11.5" y="0.5" width="4" height="4" rx="0.5"/>
+            <rect x="0.5" y="6" width="4" height="4" rx="0.5"/>
+            <rect x="6" y="6" width="4" height="4" rx="0.5"/>
+            <rect x="11.5" y="6" width="4" height="4" rx="0.5"/>
+            <rect x="0.5" y="11.5" width="4" height="4" rx="0.5"/>
+            <rect x="6" y="11.5" width="4" height="4" rx="0.5"/>
+            <rect x="11.5" y="11.5" width="4" height="4" rx="0.5"/>
+          </svg>
+        </div>
+        <span class="ob-brand-name">Outlook</span>
+      </div>
+      <div class="ob-searchbar">
+        <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><circle cx="5.5" cy="5.5" r="4" stroke="currentColor" stroke-width="1.3"/><path d="M9 9l3 3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+        Search
+      </div>
+      <div class="ob-appbar-right">
+        <!-- teams chat -->
+        <div class="ob-appbar-btn" title="Teams Chat"><svg width="18" height="18" viewBox="0 0 16 16" fill="none"><circle cx="5.5" cy="5" r="2" stroke="currentColor" stroke-width="1.2"/><path d="M1 13c0-2.5 2-4 4.5-4M9.5 7h4M9.5 9.5h4M9.5 12h2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><rect x="8" y="5.5" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.2"/></svg></div>
+        <!-- my day -->
+        <div class="ob-appbar-btn" title="My Day"><svg width="18" height="18" viewBox="0 0 16 16" fill="none"><rect x="2" y="2.5" width="12" height="11" rx="1.5" stroke="currentColor" stroke-width="1.2"/><path d="M2 6h12M5.5 1.5V4M10.5 1.5V4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><path d="M5 9.5l2 2 4-4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <!-- bell -->
+        <div class="ob-appbar-btn" title="Notifications"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1.5A4 4 0 0 0 3 5.5v3l-1 1.5h10l-1-1.5v-3A4 4 0 0 0 7 1.5z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/><path d="M5.5 10.5a1.5 1.5 0 0 0 3 0" stroke="currentColor" stroke-width="1.2"/></svg></div>
+        <!-- gear -->
+        <div class="ob-appbar-btn" title="Settings"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="1.8" stroke="currentColor" stroke-width="1.2"/><path d="M7 1v1.5M7 11.5V13M1 7h1.5M11.5 7H13M2.9 2.9l1.1 1.1M10 10l1.1 1.1M2.9 11.1L4 10M10 4l1.1-1.1" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg></div>
+        <!-- KK avatar -->
+        <div class="ob-avatar-chip">KK</div>
+      </div>
+    </div>
+
+    <!-- Ribbon tab row -->
+    <div class="ob-ribbon-tabs">
+      <button class="ob-rtab-hamburger" type="button" title="Toggle navigation">
+        <svg width="18" height="18" viewBox="0 0 16 16" fill="none"><path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+      </button>
+      <span class="ob-rtab">File</span>
+      <span class="ob-rtab">Home</span>
+      <span class="ob-rtab">View</span>
+      <span class="ob-rtab">Help</span>
+      <span class="ob-rtab ob-rtab--active">Message</span>
+      <span class="ob-rtab">Insert</span>
+      <span class="ob-rtab">Format text</span>
+      <span class="ob-rtab">Draw</span>
+      <span class="ob-rtab">Options</span>
+    </div>
+
+    <!-- Ribbon actions — Message tab state -->
+    <div class="ob-ribbon">
+      <!-- Clipboard -->
+      <div class="ob-rgroup">
+        <div class="ob-rbtns">
+          <button class="ob-rbtn" title="Undo">
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 2.5v3.5h3.5M2 6A4.5 4.5 0 1 0 3.5 9" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg width="6" height="6" viewBox="0 0 6 6" fill="none"><path d="M1 2l2 2 2-2" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/></svg>
+          </button>
+          <button class="ob-rbtn" title="Paste">
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><rect x="4.5" y="1" width="7" height="9" rx="1" stroke="currentColor" stroke-width="1.1"/><path d="M1.5 4v7.5c0 .28.22.5.5.5H8" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/></svg>
+            <svg width="6" height="6" viewBox="0 0 6 6" fill="none"><path d="M1 2l2 2 2-2" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/></svg>
+          </button>
+          <button class="ob-rbtn" title="Format Painter">
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 10L9.5 2.5M7 1l2 2-5.5 5.5-2-2L7 1z" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="ob-rdivider"></div>
+      <!-- Font -->
+      <div class="ob-rgroup">
+        <div class="ob-rbtns">
+          <div class="ob-rfont-wrapper" id="obFontWrapper">
+            <button class="ob-rbtn ob-rfont-btn" id="obFontDropdown" type="button">
+              <span id="obFontLabel">Times New Corporate</span>
+              <svg width="6" height="6" viewBox="0 0 6 6" fill="none"><path d="M1 2l2 2 2-2" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/></svg>
+            </button>
+            <div class="ob-rfont-menu hidden" id="obFontMenu">
+              <button class="ob-rfont-option ob-rfont-option--active" type="button" data-style="corporate">Times New Corporate</button>
+              <button class="ob-rfont-option" type="button" data-style="casual">Casual Sans MS</button>
+              <button class="ob-rfont-option" type="button" data-style="monkey">Monkey Gothic</button>
+            </div>
+          </div>
+          <div class="ob-rsize-wrapper">
+            <input class="ob-rsize-input" type="number" id="obFontSizeInput" min="10" max="28" value="12">
+            <div class="ob-rsize-arrows">
+              <button class="ob-rsize-arrow" id="obFontSizeUp" type="button" tabindex="-1">
+                <svg width="5" height="3" viewBox="0 0 5 3" fill="none"><path d="M0.5 2.5l2-2 2 2" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <button class="ob-rsize-arrow" id="obFontSizeDown" type="button" tabindex="-1">
+                <svg width="5" height="3" viewBox="0 0 5 3" fill="none"><path d="M0.5 0.5l2 2 2-2" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ob-rdivider"></div>
+      <!-- Text formatting -->
+      <div class="ob-rgroup">
+        <div class="ob-rbtns">
+          <button class="ob-rbtn" title="Bold"><b style="font-size:13px;letter-spacing:-0.3px">B</b></button>
+          <button class="ob-rbtn" title="Italic"><i style="font-size:13px">I</i></button>
+          <button class="ob-rbtn" title="Underline"><u style="font-size:13px">U</u></button>
+          <button class="ob-rbtn" title="Strikethrough"><s style="font-size:13px">S</s></button>
+          <button class="ob-rbtn" title="Highlight">
+            <svg width="14" height="12" viewBox="0 0 14 12" fill="none"><path d="M4 9L7 2l3 7H4z" fill="currentColor" opacity="0.8"/><path d="M2 11h10" stroke="#ffd700" stroke-width="2.5" stroke-linecap="round"/></svg>
+          </button>
+          <button class="ob-rbtn" title="Text Color">
+            <svg width="14" height="12" viewBox="0 0 14 12" fill="none"><path d="M4 9L7 2l3 7H4z" fill="currentColor" opacity="0.8"/><path d="M2 11h10" stroke="#d13438" stroke-width="2" stroke-linecap="round"/></svg>
+          </button>
+          <button class="ob-rbtn" title="More formatting" style="font-size:11px;font-weight:600;color:#0F6CBD">Ab</button>
+        </div>
+      </div>
+      <div class="ob-rdivider"></div>
+      <!-- Lists -->
+      <div class="ob-rgroup">
+        <div class="ob-rbtns">
+          <button class="ob-rbtn" title="Bullets">
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><circle cx="2" cy="3.5" r="1" fill="currentColor"/><circle cx="2" cy="6.5" r="1" fill="currentColor"/><circle cx="2" cy="9.5" r="1" fill="currentColor"/><path d="M5 3.5h7M5 6.5h7M5 9.5h7" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/></svg>
+          </button>
+          <button class="ob-rbtn" title="Numbering">
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 2h1.5v4M1.5 6h3M1.5 9h3l-3 3.5h3" stroke="currentColor" stroke-width="1" stroke-linecap="round"/><path d="M7 3.5h5M7 6.5h5M7 9.5h5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="ob-rdivider"></div>
+      <!-- Attach & insert -->
+      <div class="ob-rgroup">
+        <div class="ob-rbtns">
+          <button class="ob-rbtn" title="Attach">
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M10.5 6l-4 4.5a3 3 0 0 1-4.5-4L6.5 2a1.8 1.8 0 0 1 2.5 2.5L4.5 9a0.6 0.6 0 0 1-.9-.9L8 3.5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <button class="ob-rbtn" title="Link">
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M5 8.5l5-5M3.5 7A2.5 2.5 0 0 0 7 9.5l2-2a2.5 2.5 0 0 0-2-4.5L6 4M9.5 6A2.5 2.5 0 0 0 6 3.5L4 5.5a2.5 2.5 0 0 0 2 4.5L7 9" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/></svg>
+          </button>
+          <button class="ob-rbtn" title="Teams meeting">
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><rect x="1" y="3" width="8" height="7" rx="1.2" stroke="currentColor" stroke-width="1.1"/><path d="M9 6l3-2v5l-3-2" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round"/></svg>
+          </button>
+          <button class="ob-rbtn" title="Emoji">
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="5" stroke="currentColor" stroke-width="1.1"/><path d="M4 8c.5 1 1.2 1.5 2.5 1.5S9 9 9.5 8" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/><circle cx="4.5" cy="5.5" r="0.8" fill="currentColor"/><circle cx="8.5" cy="5.5" r="0.8" fill="currentColor"/></svg>
+          </button>
+          <button class="ob-rbtn" title="Signature">
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1 11c1-2 2-3 3-2M4 9c1-1 2-1 3 0M2 10c2-3 5-6 6-4s-3 5-1 4" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/><path d="M9 10h3" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/></svg>
+          </button>
+          <button class="ob-rbtn" title="More options">···</button>
+        </div>
+      </div>
+      <!-- Copilot — far right -->
+      <div class="ob-rgroup" style="margin-left:auto">
+        <button class="ob-rbtn" title="Copilot" style="padding:3px 6px">
+          <svg width="18" height="18" viewBox="0 0 18 18">
+            <defs>
+              <linearGradient id="cg" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#2764E7"/>
+                <stop offset="40%" stop-color="#A435FF"/>
+                <stop offset="100%" stop-color="#FF8C00"/>
+              </linearGradient>
+            </defs>
+            <path d="M9 2C5.1 2 2 5.1 2 9s3.1 7 7 7 7-3.1 7-7-3.1-7-7-7z" fill="url(#cg)"/>
+            <path d="M6.5 9c0-1.4 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5-1.1 2.5-2.5 2.5" stroke="white" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+            <circle cx="6.5" cy="9" r="1.2" fill="white"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Main content -->
+    <div class="ob-main">
+
+      <!-- Icon nav rail -->
+      <nav class="ob-nav">
+        <div class="ob-nav-top">
+          <button class="ob-nav-btn ob-nav-btn--active" title="Mail">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2" y="4" width="14" height="11" rx="1.5" stroke="currentColor" stroke-width="1.4"/><path d="M2 7l7 4 7-4" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
+          </button>
+          <button class="ob-nav-btn" title="Calendar">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2" y="3" width="14" height="13" rx="1.5" stroke="currentColor" stroke-width="1.4"/><path d="M2 7h14M6 1v4M12 1v4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+          </button>
+          <button class="ob-nav-btn" title="People">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="6.5" r="3" stroke="currentColor" stroke-width="1.4"/><path d="M2.5 16.5c0-3.59 2.91-6.5 6.5-6.5s6.5 2.91 6.5 6.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+          </button>
+          <button class="ob-nav-btn" title="Tasks">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="3" y="3" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.4"/><path d="M6 9l2.5 2.5 4-4.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+        <div class="ob-nav-bottom">
+          <button class="ob-nav-btn" title="Settings">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="2.5" stroke="currentColor" stroke-width="1.4"/><path d="M9 2v2M9 14v2M2 9h2M14 9h2M4.1 4.1l1.4 1.4M12.5 12.5l1.4 1.4M4.1 13.9l1.4-1.4M12.5 5.5l1.4-1.4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+          </button>
+        </div>
+      </nav>
+
+      <!-- Folder panel -->
+      <div class="ob-folders">
+        <div class="ob-folders-section">
+          <div class="ob-section-header">
+            <svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M2.5 4l3 3 3-3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+            Favorites
+          </div>
+          <div class="ob-folder-item ob-folder-email-row">
+            <div class="ob-avatar" style="width:20px;height:20px;font-size:9px;flex-shrink:0;background:#0F6CBD">KK</div>
+            <span class="ob-folder-name" style="font-size:11px">adminassistant4@hmebc.com</span>
+          </div>
+          <div class="ob-folder-item ob-folder-item--active">
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><rect x="1" y="3" width="11" height="8" rx="1.5" stroke="currentColor" stroke-width="1.2"/><path d="M1 5l5.5 3.5L12 5" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
+            <span class="ob-folder-name">Inbox</span>
+            <span class="ob-folder-count">82</span>
+          </div>
+          <div class="ob-folder-item">
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><rect x="1" y="2" width="11" height="9" rx="1.5" stroke="currentColor" stroke-width="1.2"/><path d="M4 2v3h5V2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+            <span class="ob-folder-name">Drafts</span>
+            <span class="ob-folder-count">95</span>
+          </div>
+          <div class="ob-folder-item">
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 4l5 3 5-3M1.5 10V4h10v6h-10z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
+            <span class="ob-folder-name">Sent Items</span>
+          </div>
+          <div class="ob-folder-item">
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 2h9v7l-2 2H2V2z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/><path d="M2 4h9" stroke="currentColor" stroke-width="1.2"/></svg>
+            <span class="ob-folder-name">Deleted Items</span>
+            <span class="ob-folder-count">2</span>
+          </div>
+          <div class="ob-folder-item">
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="4" stroke="currentColor" stroke-width="1.2"/><path d="M6.5 4v2.5l2 1.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+            <span class="ob-folder-name">Junk Email</span>
+          </div>
+          <div class="ob-folder-item">
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 2h9v9H2z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
+            <span class="ob-folder-name">Notes</span>
+          </div>
+          <div class="ob-folder-item">
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 10V3h9v7l-2 2H2z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
+            <span class="ob-folder-name">Archive</span>
+          </div>
+          <div class="ob-folder-item">
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 11V3h9v8H2zM4 3V1.5h5V3" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
+            <span class="ob-folder-name">Conversation History</span>
+          </div>
+          <div class="ob-folder-item">
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><circle cx="5.5" cy="5.5" r="3.5" stroke="currentColor" stroke-width="1.2"/><path d="M8.5 8.5l3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+            <span class="ob-folder-name">Search Folders</span>
+          </div>
+        </div>
+        <div class="ob-folder-divider"></div>
+        <div class="ob-folders-section">
+          <div class="ob-folder-item">
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="4.5" r="2.5" stroke="currentColor" stroke-width="1.2"/><path d="M1 12c0-3 2.5-5 5.5-5s5.5 2 5.5 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+            <span class="ob-folder-name">Cian Cunningham</span>
+          </div>
+          <div class="ob-folder-item">
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><circle cx="4" cy="5" r="2" stroke="currentColor" stroke-width="1.1"/><circle cx="9" cy="5" r="2" stroke="currentColor" stroke-width="1.1"/><path d="M1 12c0-2 1.3-3.5 3-3.5M12 12c0-2-1.3-3.5-3-3.5M5 12c0-2 .7-3.5 1.5-3.5S8 10 8 12" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/></svg>
+            <span class="ob-folder-name">Go to Groups</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Email list -->
+      <div class="ob-email-list">
+        <div class="ob-email-tabs">
+          <span class="ob-etab ob-etab--active">Focused</span>
+          <span class="ob-etab">Other</span>
+          <div class="ob-inbox-actions">
+            <!-- Select all -->
+            <button class="ob-inbox-icon-btn" title="Select">
+              <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6 3C4.34315 3 3 4.34315 3 6V12C3 13.6569 4.34315 15 6 15H12C13.6569 15 15 13.6569 15 12V6C15 4.34315 13.6569 3 12 3H6ZM4 6C4 4.89543 4.89543 4 6 4H12C13.1046 4 14 4.89543 14 6V12C14 13.1046 13.1046 14 12 14H6C4.89543 14 4 13.1046 4 12V6ZM7.98973 16.9998C7.10139 16.9998 6.30322 16.6137 5.75391 16.0002H10.9985C11.0173 16.0002 11.0361 16.0001 11.0548 15.9998H12.4897C14.4227 15.9998 15.9897 14.4328 15.9897 12.4998V11.2985C15.9955 11.1998 15.9985 11.1003 15.9985 11.0002V5.77161C16.6072 6.32067 16.9897 7.11558 16.9897 7.99985V12.4998C16.9897 14.9851 14.975 16.9998 12.4897 16.9998H7.98973Z"/>
+              </svg>
+            </button>
+            <!-- Jump to -->
+            <button class="ob-inbox-icon-btn" title="Jump to">
+              <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16.8666 10.8371C17.0528 10.6332 17.0384 10.3169 16.8345 10.1307C16.6305 9.94456 16.3143 9.95895 16.1281 10.1629L10.4974 16.3307V2.5C10.4974 2.22386 10.2735 2 9.99736 2C9.72122 2 9.49736 2.22386 9.49736 2.5V16.3279L3.86927 10.1629C3.68309 9.95895 3.36684 9.94456 3.16289 10.1307C2.95895 10.3169 2.94456 10.6332 3.13074 10.8371L9.44478 17.7535C9.57254 17.8934 9.74008 17.9732 9.91323 17.993C9.94058 17.9976 9.96869 18 9.99736 18C10.0242 18 10.0506 17.9979 10.0763 17.9938C10.2522 17.9756 10.4229 17.8955 10.5526 17.7535L16.8666 10.8371Z"/>
+              </svg>
+            </button>
+            <!-- Filter -->
+            <button class="ob-inbox-icon-btn" title="Filter">
+              <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7.5 13H12.5C12.7761 13 13 13.2239 13 13.5C13 13.7455 12.8231 13.9496 12.5899 13.9919L12.5 14H7.5C7.22386 14 7 13.7761 7 13.5C7 13.2545 7.17688 13.0504 7.41012 13.0081L7.5 13ZM5.5 9H14.5C14.7761 9 15 9.22386 15 9.5C15 9.74546 14.8231 9.94961 14.5899 9.99194L14.5 10H5.5C5.22386 10 5 9.77614 5 9.5C5 9.25454 5.17688 9.05039 5.41012 9.00806L5.5 9ZM3.5 5H16.5C16.7761 5 17 5.22386 17 5.5C17 5.74546 16.8231 5.94961 16.5899 5.99194L16.5 6H3.5C3.22386 6 3 5.77614 3 5.5C3 5.25454 3.17688 5.05039 3.41012 5.00806L3.5 5Z"/>
+              </svg>
+            </button>
+            <!-- Sort -->
+            <button class="ob-inbox-icon-btn" title="Sort">
+              <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2.35355 7.35418L4.99792 4.70981V16.5C4.99792 16.7761 5.22178 17 5.49792 17C5.77407 17 5.99792 16.7761 5.99792 16.5V4.7053L8.64682 7.3542C8.84209 7.54946 9.15867 7.54946 9.35393 7.3542C9.54919 7.15893 9.54919 6.84235 9.35393 6.64709L5.86386 3.15701L5.85387 3.14675C5.81608 3.10895 5.77374 3.07847 5.72861 3.05531C5.65697 3.01841 5.57828 2.99998 5.49959 3L5.49792 3C5.3441 3 5.20649 3.06947 5.11477 3.17874L1.64645 6.64707C1.45118 6.84233 1.45118 7.15891 1.64645 7.35418C1.84171 7.54944 2.15829 7.54944 2.35355 7.35418ZM17.6468 12.6458L15.0025 15.2902L15.0025 3.5C15.0025 3.22386 14.7786 3 14.5025 3C14.2263 3 14.0025 3.22386 14.0025 3.5L14.0025 15.2947L11.3536 12.6458C11.1583 12.4505 10.8417 12.4505 10.6464 12.6458C10.4512 12.8411 10.4512 13.1577 10.6464 13.3529L14.1365 16.843L14.1465 16.8533C14.1843 16.891 14.2266 16.9215 14.2718 16.9447C14.3434 16.9816 14.4221 17 14.5008 17L14.5025 17C14.6563 17 14.7939 16.9305 14.8856 16.8213L18.3539 13.3529C18.5492 13.1577 18.5492 12.8411 18.3539 12.6458C18.1587 12.4506 17.8421 12.4506 17.6468 12.6458Z"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="ob-email-scroll">
+        <div class="ob-date-sep">
+          <svg width="21" height="13" viewBox="0 0 10 10" fill="none"><path d="M2 3.5l3 3 3-3" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Today</span>
+        </div>
+        <div class="ob-email ob-email--unread ob-email--selected">
+          <div class="ob-unread-bar"></div>
+          <div class="ob-avatar" style="background:#F3D6D8;color:#750B1C">MS</div>
+          <div class="ob-email-body">
+            <div class="ob-email-row1"><span class="ob-email-sender">Michael Smith</span><span class="ob-email-time">8:08 AM</span></div>
+            <div class="ob-email-subject">[EXTERNAL]Weekly Zoom Webinar — Reminder</div>
+            <div class="ob-email-preview">[EXTERNAL]If you suspect this email is fraudulent...</div>
+          </div>
+        </div>
+        <div class="ob-email ob-email--unread">
+          <div class="ob-unread-bar"></div>
+          <div class="ob-avatar" style="background:#E9D7F5;color:#54177A">JO</div>
+          <div class="ob-email-body">
+            <div class="ob-email-row1"><span class="ob-email-sender">James Okafor</span><span class="ob-email-time">8:09 AM</span></div>
+            <div class="ob-email-subject">[EXTERNAL]Here is your record VP...</div>
+            <div class="ob-email-preview">[EXTERNAL]If you suspect this email is fraudulent...</div>
+          </div>
+        </div>
+        <div class="ob-email">
+          <div class="ob-unread-bar"></div>
+          <div class="ob-avatar" style="background:#D3EFED;color:#0A3735">IS</div>
+          <div class="ob-email-body">
+            <div class="ob-email-row1"><span class="ob-email-sender">iTunes Store</span><span class="ob-email-time">6:57 AM</span></div>
+            <div class="ob-email-subject">[EXTERNAL]Here is your recent iTunes receipt</div>
+            <div class="ob-email-preview">[EXTERNAL]If you suspect this email is fraudulent...</div>
+          </div>
+        </div>
+        <div class="ob-date-sep">
+          <svg width="21" height="13" viewBox="0 0 10 10" fill="none"><path d="M2 3.5l3 3 3-3" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>This week</span>
+        </div>
+        <div class="ob-email ob-email--unread">
+          <div class="ob-unread-bar"></div>
+          <div class="ob-avatar" style="background:#EAE3F8;color:#3C2E73">AT</div>
+          <div class="ob-email-body">
+            <div class="ob-email-row1"><span class="ob-email-sender">Anthropic Team</span><span class="ob-email-time">Mon 7:56 PM</span></div>
+            <div class="ob-email-subject">[EXTERNAL]We're updating our usage policies</div>
+            <div class="ob-email-preview">[EXTERNAL]If you suspect this email is fraudulent...</div>
+          </div>
+        </div>
+        <div class="ob-email">
+          <div class="ob-unread-bar"></div>
+          <div class="ob-avatar" style="background:#E9D7F5;color:#54177A">WS</div>
+          <div class="ob-email-body">
+            <div class="ob-email-row1"><span class="ob-email-sender">Workspace ONE Support</span><span class="ob-email-time">Mon 3:44 PM</span></div>
+            <div class="ob-email-subject">[EXTERNAL]Workspace ONE — Your ticket has been updated</div>
+            <div class="ob-email-preview">[EXTERNAL]If you suspect this email is fraudulent...</div>
+          </div>
+        </div>
+        <div class="ob-email">
+          <div class="ob-unread-bar"></div>
+          <div class="ob-avatar" style="background:#DCE9FA;color:#253FA5">O3</div>
+          <div class="ob-email-body">
+            <div class="ob-email-row1"><span class="ob-email-sender">Office365Alerts@microsoft.com</span><span class="ob-email-time">Mon 9:09 AM</span></div>
+            <div class="ob-email-subject">Office 365: New sign-in from Windows</div>
+            <div class="ob-email-preview">New sign-in activity was detected on your account.</div>
+          </div>
+        </div>
+        <div class="ob-email ob-email--unread">
+          <div class="ob-unread-bar"></div>
+          <div class="ob-avatar" style="background:#EAE3F8;color:#3C2E73">HC</div>
+          <div class="ob-email-body">
+            <div class="ob-email-row1"><span class="ob-email-sender">Health &amp; Safety Committee</span><span class="ob-email-time">Mon 8:14 AM</span></div>
+            <div class="ob-email-subject">[EXTERNAL]Health &amp; Safety: Part of a series</div>
+            <div class="ob-email-preview">[EXTERNAL]If you suspect this email is fraudulent...</div>
+          </div>
+        </div>
+        <div class="ob-date-sep">
+          <svg width="21" height="13" viewBox="0 0 10 10" fill="none"><path d="M2 3.5l3 3 3-3" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Last week</span>
+        </div>
+        <div class="ob-email">
+          <div class="ob-unread-bar"></div>
+          <div class="ob-avatar" style="background:#D0E7D4;color:#0F4620">SC</div>
+          <div class="ob-email-body">
+            <div class="ob-email-row1"><span class="ob-email-sender">SharePoint Comms</span><span class="ob-email-time">Fri 4:02 PM</span></div>
+            <div class="ob-email-subject">Document library updated — Q2 Reports</div>
+            <div class="ob-email-preview">The Q2 financial reports folder has been updated with new files.</div>
+          </div>
+        </div>
+        <div class="ob-email">
+          <div class="ob-unread-bar"></div>
+          <div class="ob-avatar" style="background:#FBE8DA;color:#6E1400">NB</div>
+          <div class="ob-email-body">
+            <div class="ob-email-row1"><span class="ob-email-sender">Nora Bjornstad</span><span class="ob-email-time">Thu 11:20 AM</span></div>
+            <div class="ob-email-subject">Re: Fleet vehicle schedule — July</div>
+            <div class="ob-email-preview">Hi, I have updated the July schedule and attached the revised spreadsheet.</div>
+          </div>
+        </div>
+        <div class="ob-email ob-email--unread">
+          <div class="ob-unread-bar"></div>
+          <div class="ob-avatar" style="background:#DCE9FA;color:#253FA5">AZ</div>
+          <div class="ob-email-body">
+            <div class="ob-email-row1"><span class="ob-email-sender">Azure DevOps</span><span class="ob-email-time">Thu 9:47 AM</span></div>
+            <div class="ob-email-subject">Pipeline failed: Build #1094</div>
+            <div class="ob-email-preview">The build pipeline for OutlookWPM encountered an error during deploy.</div>
+          </div>
+        </div>
+        <div class="ob-email">
+          <div class="ob-unread-bar"></div>
+          <div class="ob-avatar" style="background:#FCEBD3;color:#6E2B00">PM</div>
+          <div class="ob-email-body">
+            <div class="ob-email-row1"><span class="ob-email-sender">Payroll Management</span><span class="ob-email-time">Wed 8:00 AM</span></div>
+            <div class="ob-email-subject">Your pay stub is ready for June</div>
+            <div class="ob-email-preview">Your electronic pay stub for the period ending June 15 is now available.</div>
+          </div>
+        </div>
+        <div class="ob-email ob-email--unread">
+          <div class="ob-unread-bar"></div>
+          <div class="ob-avatar" style="background:#D3EFED;color:#0A3735">GS</div>
+          <div class="ob-email-body">
+            <div class="ob-email-row1"><span class="ob-email-sender">Google Security</span><span class="ob-email-time">Tue 6:13 PM</span></div>
+            <div class="ob-email-subject">[EXTERNAL]New sign-in to your account</div>
+            <div class="ob-email-preview">[EXTERNAL]We noticed a new sign-in to your Google Account from Windows.</div>
+          </div>
+        </div>
+        <div class="ob-date-sep">
+          <svg width="21" height="13" viewBox="0 0 10 10" fill="none"><path d="M2 3.5l3 3 3-3" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Earlier this month</span>
+        </div>
+        <div class="ob-email">
+          <div class="ob-unread-bar"></div>
+          <div class="ob-avatar" style="background:#F3D6D8;color:#750B1C">LM</div>
+          <div class="ob-email-body">
+            <div class="ob-email-row1"><span class="ob-email-sender">LinkedIn Messages</span><span class="ob-email-time">Jun 10</span></div>
+            <div class="ob-email-subject">You have 3 new connection requests</div>
+            <div class="ob-email-preview">People in your network want to connect with you.</div>
+          </div>
+        </div>
+        <div class="ob-email ob-email--unread">
+          <div class="ob-unread-bar"></div>
+          <div class="ob-avatar" style="background:#EAE3F8;color:#3C2E73">RK</div>
+          <div class="ob-email-body">
+            <div class="ob-email-row1"><span class="ob-email-sender">Rita Kowalski</span><span class="ob-email-time">Jun 9</span></div>
+            <div class="ob-email-subject">Re: Supplier contract renewal — action required</div>
+            <div class="ob-email-preview">Please review the attached draft and send back your comments by Friday.</div>
+          </div>
+        </div>
+        <div class="ob-email">
+          <div class="ob-unread-bar"></div>
+          <div class="ob-avatar" style="background:#DCE9FA;color:#253FA5">IT</div>
+          <div class="ob-email-body">
+            <div class="ob-email-row1"><span class="ob-email-sender">IT Helpdesk</span><span class="ob-email-time">Jun 8</span></div>
+            <div class="ob-email-subject">Your support ticket #4821 has been resolved</div>
+            <div class="ob-email-preview">The issue with your VPN access has been resolved. Please let us know if it recurs.</div>
+          </div>
+        </div>
+        <div class="ob-email ob-email--unread">
+          <div class="ob-unread-bar"></div>
+          <div class="ob-avatar" style="background:#FBE8DA;color:#6E1400">TH</div>
+          <div class="ob-email-body">
+            <div class="ob-email-row1"><span class="ob-email-sender">Tom Hendricks</span><span class="ob-email-time">Jun 6</span></div>
+            <div class="ob-email-subject">Lunch &amp; Learn — next Thursday confirmed</div>
+            <div class="ob-email-preview">Just confirming the room is booked and catering has been arranged for 12 people.</div>
+          </div>
+        </div>
+        <div class="ob-email">
+          <div class="ob-unread-bar"></div>
+          <div class="ob-avatar" style="background:#E9D7F5;color:#54177A">MP</div>
+          <div class="ob-email-body">
+            <div class="ob-email-row1"><span class="ob-email-sender">Microsoft Planner</span><span class="ob-email-time">Jun 5</span></div>
+            <div class="ob-email-subject">Task overdue: Update asset register</div>
+            <div class="ob-email-preview">The task assigned to you in the Operations board is now past its due date.</div>
+          </div>
+        </div>
+        <div class="ob-email">
+          <div class="ob-unread-bar"></div>
+          <div class="ob-avatar" style="background:#D0E7D4;color:#0F4620">JL</div>
+          <div class="ob-email-body">
+            <div class="ob-email-row1"><span class="ob-email-sender">Jennifer Lau</span><span class="ob-email-time">Jun 3</span></div>
+            <div class="ob-email-subject">Updated: Org chart — June revision</div>
+            <div class="ob-email-preview">Please find the updated org chart attached reflecting the recent changes to the team.</div>
+          </div>
+        </div>
+        </div>
+      </div>
+
+      <!-- Reading pane — compose window embedded here; Alpine Glow shows through padding -->
+      <div class="ob-reading-pane">
+
+        <div class="compose-window" id="composeWindow">
+
+    <!-- Title bar -->
+    <div class="title-bar">
+      <span class="title-text">New Message</span>
+      <div class="window-controls">
+        <button class="wc-btn" id="btnMinimize" type="button" title="Minimize">
+          <svg width="10" height="1" viewBox="0 0 10 1" fill="none"><rect width="10" height="1" fill="currentColor"/></svg>
+        </button>
+        <button class="wc-btn" id="btnPopOut" type="button" title="Pop out">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 9L9 1M5 1h4v4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="wc-btn wc-close" id="btnClose" type="button" title="Close">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 1l8 8M9 1l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Send row — split button + From + right actions (matches Outlook exactly) -->
+    <div class="send-row">
+      <!-- Split Send button -->
+      <div class="send-split-btn">
+        <button class="btn-send-primary" type="button" id="btnSend">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor" aria-hidden="true">
+            <path d="M1.5 2L13 7 1.5 12V9l8-2-8-2V2z"/>
+          </svg>
+          <span id="btnSendLabel">Send</span>
+        </button>
+        <button class="btn-send-menu" type="button" title="More send options">
+          <svg width="9" height="9" viewBox="0 0 9 9" fill="none" aria-hidden="true"><path d="M2 3.5l2.5 2.5 2.5-2.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+      <!-- From dropdown button -->
+      <button class="from-btn" type="button">
+        <span>From: adminassistant4@hmebc.com</span>
+        <svg width="9" height="9" viewBox="0 0 9 9" fill="none" aria-hidden="true"><path d="M2 3.5l2.5 2.5 2.5-2.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <!-- Right actions: Label + Discard + Pop-out -->
+      <div class="send-row-right">
+        <button class="send-action-btn" type="button" title="Set your sensitivity" style="gap:2px;">
+          <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M9.72265 2.08397C9.8906 1.97201 10.1094 1.97201 10.2774 2.08397C12.2155 3.3761 14.3117 4.1823 16.5707 4.50503C16.817 4.54021 17 4.75117 17 5V9.5C17 13.3913 14.693 16.2307 10.1795 17.9667C10.064 18.0111 9.93605 18.0111 9.82051 17.9667C5.30699 16.2307 3 13.3913 3 9.5V5C3 4.75117 3.18296 4.54021 3.42929 4.50503C5.68833 4.1823 7.78446 3.3761 9.72265 2.08397ZM9.59914 3.34583C7.85275 4.39606 5.98541 5.09055 4 5.42787V9.5C4 12.892 5.96795 15.3634 10 16.9632C14.0321 15.3634 16 12.892 16 9.5V5.42787C14.0146 5.09055 12.1473 4.39606 10.4009 3.34583L10 3.09715L9.59914 3.34583ZM10.75 13.75C10.75 14.1642 10.4142 14.5 10 14.5C9.58579 14.5 9.25 14.1642 9.25 13.75C9.25 13.3358 9.58579 13 10 13C10.4142 13 10.75 13.3358 10.75 13.75ZM8.75 8.25C8.75 7.55964 9.30964 7 10 7C10.6904 7 11.25 7.55964 11.25 8.25C11.25 8.71487 10.9805 9.01198 10.5218 9.46981L10.4867 9.50476C10.0719 9.91804 9.5 10.4878 9.5 11.4V11.5C9.5 11.7761 9.72386 12 10 12C10.2761 12 10.5 11.7761 10.5 11.5V11.4C10.5 10.9331 10.7701 10.6349 11.2282 10.1776L11.2647 10.1413C11.6789 9.72867 12.25 9.1598 12.25 8.25C12.25 7.00736 11.2426 6 10 6C8.75736 6 7.75 7.00736 7.75 8.25C7.75 8.52614 7.97386 8.75 8.25 8.75C8.52614 8.75 8.75 8.52614 8.75 8.25Z"/></svg>
+          <svg width="7" height="7" viewBox="0 0 7 7" fill="none"><path d="M1.5 2.5l2 2 2-2" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/></svg>
+        </button>
+        <button class="send-action-btn" type="button" title="Discard" id="btnDiscard">
+          <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M8.5 4H11.5C11.5 3.17157 10.8284 2.5 10 2.5C9.17157 2.5 8.5 3.17157 8.5 4ZM7.5 4C7.5 2.61929 8.61929 1.5 10 1.5C11.3807 1.5 12.5 2.61929 12.5 4H17.5C17.7761 4 18 4.22386 18 4.5C18 4.77614 17.7761 5 17.5 5H16.4456L15.2521 15.3439C15.0774 16.8576 13.7957 18 12.2719 18H7.72813C6.20431 18 4.92256 16.8576 4.7479 15.3439L3.55437 5H2.5C2.22386 5 2 4.77614 2 4.5C2 4.22386 2.22386 4 2.5 4H7.5ZM5.74131 15.2292C5.85775 16.2384 6.71225 17 7.72813 17H12.2719C13.2878 17 14.1422 16.2384 14.2587 15.2292L15.439 5H4.56101L5.74131 15.2292ZM8.5 7.5C8.77614 7.5 9 7.72386 9 8V14C9 14.2761 8.77614 14.5 8.5 14.5C8.22386 14.5 8 14.2761 8 14V8C8 7.72386 8.22386 7.5 8.5 7.5ZM12 8C12 7.72386 11.7761 7.5 11.5 7.5C11.2239 7.5 11 7.72386 11 8V14C11 14.2761 11.2239 14.5 11.5 14.5C11.7761 14.5 12 14.2761 12 14V8Z"/></svg>
+        </button>
+        <button class="send-action-btn" type="button" title="Open in new window">
+          <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M6 4C4.89543 4 4 4.89543 4 6V14C4 15.1046 4.89543 16 6 16H14C15.1046 16 16 15.1046 16 14V11.5C16 11.2239 16.2239 11 16.5 11C16.7761 11 17 11.2239 17 11.5V14C17 15.6569 15.6569 17 14 17H6C4.34315 17 3 15.6569 3 14V6C3 4.34315 4.34315 3 6 3H8.5C8.77614 3 9 3.22386 9 3.5C9 3.77614 8.77614 4 8.5 4H6ZM11 3.5C11 3.22386 11.2239 3 11.5 3H16.5C16.7761 3 17 3.22386 17 3.5V8.5C17 8.77614 16.7761 9 16.5 9C16.2239 9 16 8.77614 16 8.5V4.70711L11.8536 8.85355C11.6583 9.04882 11.3417 9.04882 11.1464 8.85355C10.9512 8.65829 10.9512 8.34171 11.1464 8.14645L15.2929 4H11.5C11.2239 4 11 3.77614 11 3.5Z"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- To -->
+    <div class="header-row to-row">
+      <button class="row-label-btn" type="button">To</button>
+      <div class="to-field">
+        <span class="cc-tag">
+          <svg class="presence-badge" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+            <circle cx="8" cy="8" r="7.5" fill="#107C10"/>
+            <path d="M4.5 8.5l2.5 2.5 5-5" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+          <span class="cc-tag-text">WPM Racer</span>
+          <button class="cc-tag-dismiss" type="button" tabindex="-1" title="Recipient">
+            <svg width="8" height="8" viewBox="0 0 8 8" fill="none"><path d="M2 2l4 4M6 2l-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+          </button>
+        </span>
+      </div>
+      <span class="row-bcc">Bcc</span>
+    </div>
+
+    <!-- Cc — people-picker style game mode selector -->
+    <div class="header-row cc-row" id="ccRow">
+      <button class="row-label-btn" type="button">Cc</button>
+      <div class="cc-field" id="ccField" tabindex="0" role="combobox" aria-haspopup="listbox" aria-expanded="false">
+        <span class="cc-tag" id="ccTag">
+          <svg class="presence-badge" id="ccTagPresence" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+            <circle cx="8" cy="8" r="7.5" fill="#EFA000"/>
+            <circle cx="8" cy="8" r="5" stroke="white" stroke-width="1.2" fill="none"/>
+            <path d="M8 5v3l2 1.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="cc-tag-text">Race · 15s</span>
+          <button class="cc-tag-dismiss" type="button" tabindex="-1" title="Change mode">
+            <svg width="8" height="8" viewBox="0 0 8 8" fill="none"><path d="M2 2l4 4M6 2l-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+          </button>
+        </span>
+        <span class="cc-field-cursor" id="ccFieldCursor"></span>
+      </div>
+
+      <!-- Dropdown — Outlook people suggestion style -->
+      <div class="cc-dropdown hidden" id="ccDropdown" role="listbox">
+        <div class="cc-dropdown-group">
+          <div class="cc-dropdown-header">Race</div>
+          <button class="cc-option" type="button" data-mode="race" data-duration="15" data-label="Race · 15s">
+            <span class="cc-avatar" style="background:#0F6CBD">R</span>
+            <div class="cc-option-body">
+              <span class="cc-option-name">Race · 15 seconds</span>
+              <span class="cc-option-sub">race.15s@wpmracer.com</span>
+            </div>
+            <svg class="cc-check" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-7" stroke="#0F6CBD" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <button class="cc-option" type="button" data-mode="race" data-duration="30" data-label="Race · 30s">
+            <span class="cc-avatar" style="background:#0F6CBD">R</span>
+            <div class="cc-option-body">
+              <span class="cc-option-name">Race · 30 seconds</span>
+              <span class="cc-option-sub">race.30s@wpmracer.com</span>
+            </div>
+            <svg class="cc-check" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-7" stroke="#0F6CBD" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <button class="cc-option" type="button" data-mode="race" data-duration="60" data-label="Race · 60s">
+            <span class="cc-avatar" style="background:#0F6CBD">R</span>
+            <div class="cc-option-body">
+              <span class="cc-option-name">Race · 60 seconds</span>
+              <span class="cc-option-sub">race.60s@wpmracer.com</span>
+            </div>
+            <svg class="cc-check" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-7" stroke="#0F6CBD" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <button class="cc-option" type="button" data-mode="race" data-duration="120" data-label="Race · 120s">
+            <span class="cc-avatar" style="background:#0F6CBD">R</span>
+            <div class="cc-option-body">
+              <span class="cc-option-name">Race · 120 seconds</span>
+              <span class="cc-option-sub">race.120s@wpmracer.com</span>
+            </div>
+            <svg class="cc-check" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-7" stroke="#0F6CBD" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+        <div class="cc-dropdown-divider"></div>
+        <div class="cc-dropdown-group">
+          <div class="cc-dropdown-header">Passage</div>
+          <button class="cc-option" type="button" data-mode="passage" data-length="short" data-label="Passage · Short">
+            <span class="cc-avatar" style="background:#5c2d91">P</span>
+            <div class="cc-option-body">
+              <span class="cc-option-name">Passage · Short</span>
+              <span class="cc-option-sub">passage.short@wpmracer.com</span>
+            </div>
+            <svg class="cc-check" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-7" stroke="#0F6CBD" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <button class="cc-option" type="button" data-mode="passage" data-length="medium" data-label="Passage · Medium">
+            <span class="cc-avatar" style="background:#5c2d91">P</span>
+            <div class="cc-option-body">
+              <span class="cc-option-name">Passage · Medium</span>
+              <span class="cc-option-sub">passage.medium@wpmracer.com</span>
+            </div>
+            <svg class="cc-check" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-7" stroke="#0F6CBD" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <button class="cc-option" type="button" data-mode="passage" data-length="long" data-label="Passage · Long">
+            <span class="cc-avatar" style="background:#5c2d91">P</span>
+            <div class="cc-option-body">
+              <span class="cc-option-name">Passage · Long</span>
+              <span class="cc-option-sub">passage.long@wpmracer.com</span>
+            </div>
+            <svg class="cc-check" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-7" stroke="#0F6CBD" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Subject — live WPM -->
+    <div class="header-row subject-row">
+      <span class="subject-value" id="subjectValue" style="flex:1">Re: Click to begin</span>
+      <span class="row-draft-saved" id="draftSaved">Draft saved at 11:12 AM</span>
+    </div>
+
+    <!-- Body area -->
+    <div class="body-area" id="bodyArea">
+      <div class="body-hint" id="bodyHint">
+        <div class="hint-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="1" y="4" width="18" height="13" rx="2" stroke="currentColor" stroke-width="1.4"/><path d="M5 8h2M5 11h2M9 8h2M9 11h2M13 8h2M13 11h2M7 14h6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+        </div>
+        <span>Click or press any key to start</span>
+      </div>
+      <div class="text-display" id="textDisplay"></div>
+    </div>
+
+    <!-- Bottom bar (timer only — Send is now at top) -->
+    <div class="bottom-bar">
+      <span class="timer-display" id="timerDisplay"></span>
+    </div>
+
+        </div><!-- /compose-window -->
+
+        <!-- Compose tab bar — sits below compose window inside reading pane -->
+        <div class="ob-compose-bar">
+          <div class="ob-compose-tab">
+            <svg class="ob-compose-tab-icon" width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <path d="M2 12.5l2-0.5 8-8-1.5-1.5-8 8-0.5 2z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/>
+              <path d="M9.5 2.5l1.5 1.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+            </svg>
+            <span class="ob-compose-tab-title">WPM Racer</span>
+            <span class="ob-compose-tab-dot">·</span>
+            <span class="ob-compose-tab-sub">Re: Click to begin</span>
+            <button class="ob-compose-tab-close" type="button" tabindex="-1">
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 2l6 6M8 2l-6 6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+            </button>
+          </div>
+        </div>
+
+      </div><!-- /ob-reading-pane -->
+
+    </div><!-- /ob-main -->
+
+    <div class="ob-overlay"></div>
+
+  </div><!-- /outlook-backdrop -->
+
+  <script type="module" src="game.js"></script>
+</body>
+</html>

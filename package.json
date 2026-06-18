@@ -1,0 +1,6 @@
+{
+  "name": "outlook-wpm",
+  "scripts": {
+    "dev": "npx serve ."
+  }
+}
