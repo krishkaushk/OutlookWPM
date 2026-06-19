@@ -5,6 +5,7 @@ const GameState = {
   duration: 15,
   passageLength: 'short',
   textStyle: 'corporate',
+  peekMode: false,
   words: [],        // ['word1', 'word2', ...]
   wordIndex: 0,     // current word being typed
   charIndex: 0,     // position within current word (0 = before first char)
@@ -145,6 +146,16 @@ function moveCursor() {
       $gameCaret.style.height = r.height + 'px';
     }
   });
+
+}
+
+function updatePeek() {
+  if (!GameState.peekMode) return;
+  const wi = GameState.wordIndex;
+  $textDisplay.querySelectorAll('.word').forEach(wordEl => {
+    const idx = parseInt(wordEl.dataset.wi, 10);
+    wordEl.classList.toggle('word-peek-hidden', idx > wi + 2);
+  });
 }
 
 function appendMoreWords() {
@@ -279,15 +290,36 @@ function resetGame() {
 
   const $draftSaved = document.getElementById('draftSaved');
   if ($draftSaved) $draftSaved.textContent = formatDraftTime();
-  const $ccCursor = document.getElementById('ccFieldCursor');
-  if ($ccCursor) $ccCursor.hidden = false;
+
+  const $greeting = document.getElementById('emailGreeting');
+  const $footer   = document.getElementById('emailFooter');
+  if (GameState.peekMode) {
+    const openers  = ['Hi', 'Hello', 'Good morning', 'Dear', 'Hey'];
+    const targets  = ['Sarah', 'James', 'Emma', 'Michael', 'Laura', 'David', 'Jessica', 'Chris', 'team', 'everyone', 'all'];
+    const closings = ['Best regards,', 'Thank you,', 'Kind regards,', 'Thanks,', 'Warm regards,'];
+    const opener  = openers[Math.floor(Math.random() * openers.length)];
+    const target  = targets[Math.floor(Math.random() * targets.length)];
+    const closing = closings[Math.floor(Math.random() * closings.length)];
+    const fromEl   = document.getElementById('fromEmailDisplay');
+    const localPart = fromEl ? fromEl.textContent.split('@')[0] : 'admin';
+    const firstName = localPart.split(/[^a-zA-Z0-9]/)[0];
+    const sigName   = firstName.charAt(0).toUpperCase() + firstName.slice(1);
+    if ($greeting) { $greeting.textContent = `${opener} ${target},`; $greeting.classList.remove('hidden'); }
+    if ($footer)   { $footer.dataset.closing = closing; $footer.innerHTML = `${closing}<br>${sigName}`; $footer.classList.remove('hidden'); }
+  } else {
+    $greeting?.classList.add('hidden');
+    $footer?.classList.add('hidden');
+  }
 
   renderText();
+  // Re-apply peek after spans are built
+  updatePeek();
 }
 
 // ── Input handling ───────────────────────────────────────────────────────────
 
 function handleKeypress(e) {
+  if (document.activeElement && document.activeElement.id === 'fromEmailDisplay') return;
   if (e.key === 'Tab') { e.preventDefault(); resetGame(); return; }
 
   if (GameState.state === 'finished') {
@@ -396,6 +428,7 @@ function handleKeypress(e) {
       appendMoreWords();
     }
 
+    updatePeek();
     moveCursor();
     updateSubject();
     return;
@@ -451,6 +484,7 @@ function openDropdown() {
 function closeDropdown() {
   $ccDropdown.classList.add('hidden');
   $ccField.setAttribute('aria-expanded', 'false');
+  $ccField.blur();
 }
 
 function setActiveOption(btn) {
@@ -544,7 +578,12 @@ function initEventListeners() {
   const $obFontSizeInput = document.getElementById('obFontSizeInput');
   if ($obFontSizeInput) {
     const applySize = size => {
-      if (size >= 10 && size <= 28) $textDisplay.style.fontSize = (size + 5) + 'px';
+      if (size >= 10 && size <= 28) {
+        const px = (size + 5) + 'px';
+        $textDisplay.style.fontSize = px;
+        document.getElementById('emailGreeting').style.fontSize = px;
+        document.getElementById('emailFooter').style.fontSize = px;
+      }
     };
     $obFontSizeInput.addEventListener('input', e => applySize(parseInt(e.target.value, 10)));
     document.getElementById('obFontSizeUp')?.addEventListener('click', () => {
@@ -559,6 +598,26 @@ function initEventListeners() {
 
   document.getElementById('btnDiscard').addEventListener('click', resetGame);
   document.getElementById('btnClose').addEventListener('click', resetGame);
+
+  const $bccToggleBtn = document.getElementById('bccToggleBtn');
+  const $bccRow       = document.getElementById('bccRow');
+  const $bccCloseBtn  = document.getElementById('bccCloseBtn');
+
+  const toggleBcc = () => {
+    const nowHidden = $bccRow.classList.toggle('hidden');
+    GameState.peekMode = !nowHidden;
+    if (GameState.peekMode) {
+      resetGame();
+    } else {
+      // Remove peek hiding and clear greeting/footer without full reset
+      $textDisplay.querySelectorAll('.word-peek-hidden').forEach(el => el.classList.remove('word-peek-hidden'));
+      document.getElementById('emailGreeting')?.classList.add('hidden');
+      document.getElementById('emailFooter')?.classList.add('hidden');
+    }
+  };
+
+  $bccToggleBtn?.addEventListener('click', toggleBcc);
+  $bccCloseBtn?.addEventListener('click', e => { e.stopPropagation(); toggleBcc(); });
 
   $btnSend.addEventListener('click', () => {
     if (GameState.state === 'finished') resetGame();
@@ -584,6 +643,22 @@ document.addEventListener('DOMContentLoaded', async () => {
   $textDisplay.appendChild($gameCaret);
 
   initEventListeners();
+
+  const $fromEmail = document.getElementById('fromEmailDisplay');
+  const $navEmail  = document.getElementById('navAccountEmail');
+  if ($fromEmail && $navEmail) {
+    $fromEmail.addEventListener('input', () => {
+      $navEmail.textContent = $fromEmail.textContent.trim();
+      const $footer = document.getElementById('emailFooter');
+      if ($footer && !$footer.classList.contains('hidden')) {
+        const localPart = $fromEmail.textContent.split('@')[0];
+        const firstName = localPart.split(/[^a-zA-Z0-9]/)[0];
+        const sigName   = firstName.charAt(0).toUpperCase() + firstName.slice(1) || 'Admin';
+        $footer.innerHTML = `${$footer.dataset.closing || ''}<br>${sigName}`;
+      }
+    });
+  }
+
   const defaultOption = $ccDropdown.querySelector('[data-mode="race"][data-duration="15"]');
   if (defaultOption) defaultOption.classList.add('active');
   resetGame();
