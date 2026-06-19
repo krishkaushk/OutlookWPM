@@ -1,0 +1,53 @@
+{
+  "openers": [
+    "Hi",
+    "Hi",
+    "Hello",
+    "Good morning",
+    "Good afternoon",
+    "Hey",
+    "Greetings"
+  ],
+  "targets": [
+    "team",
+    "everyone",
+    "all",
+    "friends",
+    "Boss",
+
+    "Sarah",
+    "James",
+    "Emma",
+    "Michael",
+    "David",
+    "Jessica",
+    "Chris",
+    "Priya",
+    "Marcus",
+    "Rachel",
+    "Bartholomew",
+
+    "Krish",
+    "Jordan",
+    "Benjamin",
+    "Jasmine",
+    "Davis",
+    "Mia",
+    "Connor"
+
+  ],
+  "closings": [
+    "Best regards,",
+    "Thank you,",
+    "Kind regards,",
+    "Thanks,",
+    "Warm regards,",
+    "Many thanks,",
+    "Cheers,",
+    "Sincerely,",
+    "Best,",
+    "Regards,",
+    "Take care,",
+    "With love,"
+  ]
+}

@@ -26,18 +26,29 @@ let corporatePassages = {
   medium: [],
   long:   []
 };
+let emailContent = {
+  openers:  ['Hi', 'Hello', 'Good morning', 'Dear', 'Hey'],
+  targets:  ['Sarah', 'James', 'Emma', 'Michael', 'Laura', 'David', 'team', 'everyone'],
+  closings: ['Best regards,', 'Thank you,', 'Kind regards,', 'Thanks,', 'Warm regards,']
+};
 
 // ── DOM refs ─────────────────────────────────────────────────────────────────
 
-const $bodyArea    = document.getElementById('bodyArea');
-const $textDisplay = document.getElementById('textDisplay');
-const $subject     = document.getElementById('subjectValue');
-const $timer       = document.getElementById('timerDisplay');
-const $ccField     = document.getElementById('ccField');
-const $ccTag       = document.getElementById('ccTag');
-const $ccDropdown  = document.getElementById('ccDropdown');
-const $btnSend     = document.getElementById('btnSend');
+const $bodyArea     = document.getElementById('bodyArea');
+const $textDisplay  = document.getElementById('textDisplay');
+const $subject      = document.getElementById('subjectValue');
+const $timer        = document.getElementById('timerDisplay');
+const $ccField      = document.getElementById('ccField');
+const $ccTag        = document.getElementById('ccTag');
+const $ccDropdown   = document.getElementById('ccDropdown');
+const $ccRow        = document.getElementById('ccRow');
+const $bccRow       = document.getElementById('bccRow');
+const $btnSend      = document.getElementById('btnSend');
 const $btnSendLabel = document.getElementById('btnSendLabel');
+const $greeting     = document.getElementById('emailGreeting');
+const $footer       = document.getElementById('emailFooter');
+const $draftSaved   = document.getElementById('draftSaved');
+const $ccCursor     = document.getElementById('ccFieldCursor');
 
 let $gameCaret; // created in DOMContentLoaded, appended to $textDisplay
 
@@ -228,7 +239,6 @@ function startGame() {
   GameState.state = 'active';
   $bodyArea.classList.remove('idle');
   updateSubject();
-  const $ccCursor = document.getElementById('ccFieldCursor');
   if ($ccCursor) $ccCursor.hidden = true;
 
   GameState.timerInterval = setInterval(() => {
@@ -288,24 +298,19 @@ function resetGame() {
   $btnSendLabel.textContent = 'Send';
   $bodyArea.scrollTop = 0;
 
-  const $draftSaved = document.getElementById('draftSaved');
   if ($draftSaved) $draftSaved.textContent = formatDraftTime();
 
-  const $greeting = document.getElementById('emailGreeting');
-  const $footer   = document.getElementById('emailFooter');
   if (GameState.peekMode) {
-    const openers  = ['Hi', 'Hello', 'Good morning', 'Dear', 'Hey'];
-    const targets  = ['Sarah', 'James', 'Emma', 'Michael', 'Laura', 'David', 'Jessica', 'Chris', 'team', 'everyone', 'all'];
-    const closings = ['Best regards,', 'Thank you,', 'Kind regards,', 'Thanks,', 'Warm regards,'];
-    const opener  = openers[Math.floor(Math.random() * openers.length)];
-    const target  = targets[Math.floor(Math.random() * targets.length)];
-    const closing = closings[Math.floor(Math.random() * closings.length)];
-    const fromEl   = document.getElementById('fromEmailDisplay');
-    const localPart = fromEl ? fromEl.textContent.split('@')[0] : 'admin';
-    const firstName = localPart.split(/[^a-zA-Z0-9]/)[0];
-    const sigName   = firstName.charAt(0).toUpperCase() + firstName.slice(1);
+    const pick = arr => arr[Math.floor(Math.random() * arr.length)];
+    const opener  = pick(emailContent.openers);
+    const target  = pick(emailContent.targets);
+    const closing = pick(emailContent.closings);
+    const fromEl  = document.getElementById('fromEmailDisplay');
+    const local   = fromEl ? fromEl.textContent.split('@')[0] : 'admin';
+    const sigName = local.split(/[^a-zA-Z0-9]/)[0];
+    const sig     = sigName.charAt(0).toUpperCase() + sigName.slice(1);
     if ($greeting) { $greeting.textContent = `${opener} ${target},`; $greeting.classList.remove('hidden'); }
-    if ($footer)   { $footer.dataset.closing = closing; $footer.innerHTML = `${closing}<br>${sigName}`; $footer.classList.remove('hidden'); }
+    if ($footer)   { $footer.dataset.closing = closing; $footer.innerHTML = `${closing}<br>${sig}`; $footer.classList.remove('hidden'); }
   } else {
     $greeting?.classList.add('hidden');
     $footer?.classList.add('hidden');
@@ -543,7 +548,7 @@ function initEventListeners() {
   });
 
   document.addEventListener('click', e => {
-    if (!document.getElementById('ccRow').contains(e.target)) {
+    if (!$ccRow.contains(e.target)) {
       closeDropdown();
     }
     const fontWrapper = document.getElementById('obFontWrapper');
@@ -581,8 +586,8 @@ function initEventListeners() {
       if (size >= 10 && size <= 28) {
         const px = (size + 5) + 'px';
         $textDisplay.style.fontSize = px;
-        document.getElementById('emailGreeting').style.fontSize = px;
-        document.getElementById('emailFooter').style.fontSize = px;
+        if ($greeting) $greeting.style.fontSize = px;
+        if ($footer)   $footer.style.fontSize   = px;
       }
     };
     $obFontSizeInput.addEventListener('input', e => applySize(parseInt(e.target.value, 10)));
@@ -600,7 +605,6 @@ function initEventListeners() {
   document.getElementById('btnClose').addEventListener('click', resetGame);
 
   const $bccToggleBtn = document.getElementById('bccToggleBtn');
-  const $bccRow       = document.getElementById('bccRow');
   const $bccCloseBtn  = document.getElementById('bccCloseBtn');
 
   const toggleBcc = () => {
@@ -609,10 +613,9 @@ function initEventListeners() {
     if (GameState.peekMode) {
       resetGame();
     } else {
-      // Remove peek hiding and clear greeting/footer without full reset
       $textDisplay.querySelectorAll('.word-peek-hidden').forEach(el => el.classList.remove('word-peek-hidden'));
-      document.getElementById('emailGreeting')?.classList.add('hidden');
-      document.getElementById('emailFooter')?.classList.add('hidden');
+      $greeting?.classList.add('hidden');
+      $footer?.classList.add('hidden');
     }
   };
 
@@ -629,12 +632,17 @@ function initEventListeners() {
 document.addEventListener('DOMContentLoaded', async () => {
   // Load all word pools before first render; fallbacks above handle fetch failures
   await Promise.all([
-    fetch('./words/MonkeyEnglish.json').then(r => r.json()).then(d => { if (d.words?.length)    monkeyWordPool    = d.words;    }).catch(() => {}),
-    fetch('./words/CasualEnglish.json').then(r => r.json()).then(d => { if (d.words?.length)    casualWordPool    = d.words;    }).catch(() => {}),
+    fetch('./words/MonkeyEnglish.json').then(r => r.json()).then(d => { if (d.words?.length)    monkeyWordPool    = d.words; }).catch(() => {}),
+    fetch('./words/CasualEnglish.json').then(r => r.json()).then(d => { if (d.words?.length)    casualWordPool    = d.words; }).catch(() => {}),
     fetch('./words/corporateEnglish.json').then(r => r.json()).then(d => {
       if (d.short?.length)  corporatePassages.short  = d.short;
       if (d.medium?.length) corporatePassages.medium = d.medium;
       if (d.long?.length)   corporatePassages.long   = d.long;
+    }).catch(() => {}),
+    fetch('./words/emailContent.json').then(r => r.json()).then(d => {
+      if (d.openers?.length)  emailContent.openers  = d.openers;
+      if (d.targets?.length)  emailContent.targets  = d.targets;
+      if (d.closings?.length) emailContent.closings = d.closings;
     }).catch(() => {}),
   ]);
 
@@ -649,12 +657,11 @@ document.addEventListener('DOMContentLoaded', async () => {
   if ($fromEmail && $navEmail) {
     $fromEmail.addEventListener('input', () => {
       $navEmail.textContent = $fromEmail.textContent.trim();
-      const $footer = document.getElementById('emailFooter');
       if ($footer && !$footer.classList.contains('hidden')) {
-        const localPart = $fromEmail.textContent.split('@')[0];
-        const firstName = localPart.split(/[^a-zA-Z0-9]/)[0];
-        const sigName   = firstName.charAt(0).toUpperCase() + firstName.slice(1) || 'Admin';
-        $footer.innerHTML = `${$footer.dataset.closing || ''}<br>${sigName}`;
+        const local   = $fromEmail.textContent.split('@')[0];
+        const sigName = local.split(/[^a-zA-Z0-9]/)[0];
+        const sig     = sigName.charAt(0).toUpperCase() + sigName.slice(1) || 'Admin';
+        $footer.innerHTML = `${$footer.dataset.closing || ''}<br>${sig}`;
       }
     });
   }
