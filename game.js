@@ -324,7 +324,10 @@ function resetGame() {
 // ── Input handling ───────────────────────────────────────────────────────────
 
 function handleKeypress(e) {
-  if (document.activeElement && document.activeElement.id === 'fromEmailDisplay') return;
+  if (document.activeElement && (
+    document.activeElement.id === 'fromEmailDisplay' ||
+    document.activeElement.id === 'obFontSizeInput'
+  )) return;
   if (e.key === 'Tab') { e.preventDefault(); resetGame(); return; }
 
   if (GameState.state === 'finished') {
