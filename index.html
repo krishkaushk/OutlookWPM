@@ -10,22 +10,56 @@
 
   <div class="outlook-backdrop">
 
+      <!-- Icon nav rail — full-height column -->
+      <nav class="ob-nav">
+        <!-- Waffle — FUI ic_fluent_grid_dots_28_regular -->
+        <div class="ob-nav-logo">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+            <circle cx="4" cy="4" r="1.5"/><circle cx="10" cy="4" r="1.5"/><circle cx="16" cy="4" r="1.5"/>
+            <circle cx="4" cy="10" r="1.5"/><circle cx="10" cy="10" r="1.5"/><circle cx="16" cy="10" r="1.5"/>
+            <circle cx="4" cy="16" r="1.5"/><circle cx="10" cy="16" r="1.5"/><circle cx="16" cy="16" r="1.5"/>
+          </svg>
+        </div>
+        <div class="ob-nav-top">
+          <button class="ob-nav-btn ob-nav-btn--active" title="Mail">
+            <img src="https://res.public.onecdn.static.microsoft/owamail/hashed-v1/resources/images/Mail_22px-hash-ef494f7f.m.svg" width="18" height="18" alt="Mail">
+          </button>
+          <button class="ob-nav-btn" title="Calendar">
+            <img src="https://res.public.onecdn.static.microsoft/owamail/hashed-v1/resources/images/Calendar_22px-hash-4b5e2360.m.svg" width="18" height="18" alt="Calendar">
+          </button>
+          <button class="ob-nav-btn" title="Copilot">
+            <img src="https://res.cdn.office.net/s01-tpswwprod/B01C43E8AC2EE8B7BFD5FEC28279DFF918360F67809E8869DC0F3C7F60DB35FD" width="18" height="18" alt="Copilot">
+          </button>
+          <button class="ob-nav-btn" title="People">
+            <img src="https://res.public.onecdn.static.microsoft/owamail/hashed-v1/resources/images/People_22px-hash-6b8f0c5c.m.svg" width="18" height="18" alt="People">
+          </button>
+          <button class="ob-nav-btn" title="To Do">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAL1SURBVHgB7VVPaxNBFH8zidHWViNoUpHWePGcD6DQiBSqIlUEqxcdBEFE/AhZP4FfYUHEQlEqBf8cdAsF8daeRFCwR2+phPqn7b7xzezOZrLZZJOaXCQPktnd2Znfn/fmLcAw/ve47v18OL+y9W1+9Vc1aZ7BAOPau60qATiMA3CFlOHOwtmRR/Y7HAYUV9/Wq9KXjpQSJALQAOCjE3diIA5cfl2v8kg5AzXSQCNrcaLvDlxarlfBUo40YuiAvqef7URfHbjwsk45R4eRXK5Ua+WsSb0ao5qQWMkmbXTsplfOwO4cYNb9vlDZ6AZ85vkPyrnvhDuTUqbVcSYDNKRnigRK/T4SK8nYJksC5ww9Wpen2w1aVUkjcX6xRjlnTqCU8HhcdehEOOpnEsTizJjLOoCb6Eji3LNalfZ04vZGgIaENU9z4gWBq/UsBbwjiemnBA7SacmxccJSbU4C51wszQbgEYEU8EQSZ57UdMFx1qywyXIWpsPcZ0AsXzzk2puyiXmvJDO4lgLeRKI0W77FNXioKkYiAG4oV/MZQLF85Ygb3zBLZTndJbiK0uHTxTWJmMcweaqRIKjKZkFTwaDq1ZkHLlW5A2ZQvEoA1+t/5/iSBLYOXcT4qSKMTRXyqrmoxoIY4OnrpoYj9XM9z6R40wYcIKyB/G0vv39besS73O7Fg6UijJcmoGF747gp5cZ2XXgQXAND8f7GURc6hHZt061s/smxSjsnRk8WYXSqCKq9NhQrhbLhAhhHZHC9mw4eOWAiyYkDk0UYIQKcASQVXaITKMWqSAePHDARdyJH4LnJQkOxnW/biTD/qu4k+l2DtxCIk9h3ohABtCNhik2lB3xffBAFF3qIxM+xIeFv767bKm0S8Wf0Lz7e6Q1cRcfPcelxLc/4jkcpLkf5Nh3OrgE6aut3ewdPJWCTILAyTyBBHohP9/YG3hUBm0TcCYIXn+/vHbxrAkkkqMeLL/8I3hMBQwJgZy6b9Te+Pji+AsMYRh/iL5mvmIzqBzX8AAAAAElFTkSuQmCC" width="18" height="18" alt="To Do">
+          </button>
+          <button class="ob-nav-btn" title="Newsletters">
+            <img src="https://res.public.onecdn.static.microsoft/owamail/hashed-v1/resources/images/Newsletters_22px-hash-9cfbd5b7.m.svg" width="18" height="18" alt="Newsletters">
+          </button>
+          <button class="ob-nav-btn" title="Org Explorer">
+            <img src="https://res.cdn.office.net/s01-tpswwprod/968AB88037AECA6B2E7A1EB965C99A9A9C614A81FD0296889E7C1EB265F4E9CD" width="18" height="18" alt="Org Explorer">
+          </button>
+          <button class="ob-nav-btn" title="OneDrive">
+            <img src="https://res.public.onecdn.static.microsoft/owamail/hashed-v1/resources/images/onedrive_24x-hash-e0d279de.m.svg" width="18" height="18" alt="OneDrive">
+          </button>
+          <!-- App Folder — FUI ic_fluent_app_folder_20_regular -->
+          <button class="ob-nav-btn" title="Apps">
+            <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor" stroke="currentColor" stroke-width="0.2" stroke-linejoin="round" style="color:#212121" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5 6C5 5.44772 5.44772 5 6 5H8C8.55228 5 9 5.44772 9 6V8C9 8.55228 8.55228 9 8 9H6C5.44772 9 5 8.55228 5 8V6ZM8 6H6V8H8V6ZM5 12C5 11.4477 5.44772 11 6 11H8C8.55228 11 9 11.4477 9 12V14C9 14.5523 8.55228 15 8 15H6C5.44772 15 5 14.5523 5 14V12ZM8 12H6V14H8V12ZM12 5C11.4477 5 11 5.44772 11 6V8C11 8.55228 11.4477 9 12 9H14C14.5523 9 15 8.55228 15 8V6C15 5.44772 14.5523 5 14 5H12ZM12 6H14V8H12V6ZM11 12C11 11.4477 11.4477 11 12 11H14C14.5523 11 15 11.4477 15 12V14C15 14.5523 14.5523 15 14 15H12C11.4477 15 11 14.5523 11 14V12ZM14 12H12V14H14V12ZM5 2C3.34315 2 2 3.34315 2 5V15C2 16.6569 3.34315 18 5 18H15C16.6569 18 18 16.6569 18 15V5C18 3.34315 16.6569 2 15 2H5ZM3 5C3 3.89543 3.89543 3 5 3H15C16.1046 3 17 3.89543 17 5V15C17 16.1046 16.1046 17 15 17H5C3.89543 17 3 16.1046 3 15V5Z"/>
+            </svg>
+          </button>
+        </div>
+      </nav>
+
+      <!-- Right column: appbar + ribbon + main content -->
+      <div class="ob-right">
+
     <!-- Application title bar -->
     <div class="ob-appbar">
       <div class="ob-appbar-brand">
-        <div class="ob-brand-icon">
-          <svg width="18" height="18" viewBox="0 0 16 16" fill="currentColor">
-            <rect x="0.5" y="0.5" width="4" height="4" rx="0.5"/>
-            <rect x="6" y="0.5" width="4" height="4" rx="0.5"/>
-            <rect x="11.5" y="0.5" width="4" height="4" rx="0.5"/>
-            <rect x="0.5" y="6" width="4" height="4" rx="0.5"/>
-            <rect x="6" y="6" width="4" height="4" rx="0.5"/>
-            <rect x="11.5" y="6" width="4" height="4" rx="0.5"/>
-            <rect x="0.5" y="11.5" width="4" height="4" rx="0.5"/>
-            <rect x="6" y="11.5" width="4" height="4" rx="0.5"/>
-            <rect x="11.5" y="11.5" width="4" height="4" rx="0.5"/>
-          </svg>
-        </div>
         <span class="ob-brand-name">Outlook</span>
       </div>
       <div class="ob-searchbar">
@@ -33,16 +67,16 @@
         Search
       </div>
       <div class="ob-appbar-right">
-        <!-- teams chat -->
-        <div class="ob-appbar-btn" title="Teams Chat"><svg width="18" height="18" viewBox="0 0 16 16" fill="none"><circle cx="5.5" cy="5" r="2" stroke="currentColor" stroke-width="1.2"/><path d="M1 13c0-2.5 2-4 4.5-4M9.5 7h4M9.5 9.5h4M9.5 12h2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><rect x="8" y="5.5" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.2"/></svg></div>
-        <!-- my day -->
-        <div class="ob-appbar-btn" title="My Day"><svg width="18" height="18" viewBox="0 0 16 16" fill="none"><rect x="2" y="2.5" width="12" height="11" rx="1.5" stroke="currentColor" stroke-width="1.2"/><path d="M2 6h12M5.5 1.5V4M10.5 1.5V4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><path d="M5 9.5l2 2 4-4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <!-- bell -->
-        <div class="ob-appbar-btn" title="Notifications"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1.5A4 4 0 0 0 3 5.5v3l-1 1.5h10l-1-1.5v-3A4 4 0 0 0 7 1.5z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/><path d="M5.5 10.5a1.5 1.5 0 0 0 3 0" stroke="currentColor" stroke-width="1.2"/></svg></div>
-        <!-- gear -->
-        <div class="ob-appbar-btn" title="Settings"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="1.8" stroke="currentColor" stroke-width="1.2"/><path d="M7 1v1.5M7 11.5V13M1 7h1.5M11.5 7H13M2.9 2.9l1.1 1.1M10 10l1.1 1.1M2.9 11.1L4 10M10 4l1.1-1.1" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg></div>
-        <!-- KK avatar -->
-        <div class="ob-avatar-chip">KK</div>
+        <!-- teams chat — exact FUI path from Elements/Top Bar - Light -->
+        <div class="ob-appbar-btn" title="Teams Chat"><svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor"><path d="M10.5 7a2.5 2.5 0 012.45 2h2.55a2.5 2.5 0 012.5 2.5V15a3 3 0 01-3 3H8.25c-1.52 0-2.85-.8-3.6-2H4a2 2 0 01-2-2V9c0-1.1.9-2 2-2h6.5zm.24 1.02A2 2 0 0111 9v5a2 2 0 01-2 2H5.9c.6.62 1.43 1 2.35 1h4.52a2.98 2.98 0 01-.77-2V9.5a1.5 1.5 0 00-1.26-1.48zM13 15a2 2 0 104 0v-3.5c0-.83-.67-1.5-1.5-1.5H13v5zM4.6 9.92h1.33V14h1.14V9.92H8.4V9H4.59v.92zM15 4a2 2 0 110 4 2 2 0 010-4zm0 1a1 1 0 100 2 1 1 0 000-2zM8.5 1a2.5 2.5 0 110 5 2.5 2.5 0 010-5zm0 1a1.5 1.5 0 100 3 1.5 1.5 0 000-3z"/></svg></div>
+        <!-- my day — exact FUI path from Elements/Top Bar - Light -->
+        <div class="ob-appbar-btn" title="My Day"><svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor"><path d="M14.5 3A2.5 2.5 0 0117 5.5v3.09a2 2 0 00-1 .23V7H4v7.5c0 .83.67 1.5 1.5 1.5h1.48a2 2 0 00.41.6l.4.4H5.5A2.5 2.5 0 013 14.5v-9A2.5 2.5 0 015.5 3h9zm0 1h-9C4.67 4 4 4.67 4 5.5V6h12v-.5c0-.83-.67-1.5-1.5-1.5zM8.1 15.9a1 1 0 010-1.42l1.06-1.06a1 1 0 011.41 0l1.07 1.06 4.6-4.6a1 1 0 011.4 0l1.07 1.06a1 1 0 010 1.42l-6.37 6.36a1 1 0 01-1.41 0L8.1 15.89zm2.47 1.05l1.07 1.06L18 11.65l-1.06-1.06-6.37 6.36zm-1.76-1.77l1.06 1.06 1.06-1.06-1.06-1.06-1.06 1.06z"/></svg></div>
+        <!-- bell — outline stroke -->
+        <div class="ob-appbar-btn" title="Notifications"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><path d="M10 2.5a5.5 5.5 0 00-5.5 5.5v3l-1.2 2.2h13.4l-1.2-2.2V8A5.5 5.5 0 0010 2.5z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="M8.25 14.5a1.75 1.75 0 003.5 0" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg></div>
+        <!-- gear — outline stroke -->
+        <div class="ob-appbar-btn" title="Settings"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><path d="M9.25 2.5h1.5l.6 1.88c.38.13.73.3 1.05.51l1.85-.74 1.06 1.06-.74 1.85c.2.32.38.67.51 1.05L17 8.75v1.5l-1.88.6a5.1 5.1 0 01-.51 1.05l.74 1.85-1.06 1.06-1.85-.74c-.32.2-.67.38-1.05.51L10.75 17.5h-1.5l-.6-1.88a5.1 5.1 0 01-1.05-.51l-1.85.74-1.06-1.06.74-1.85a5.1 5.1 0 01-.51-1.05L3 11.25v-1.5l1.88-.6c.13-.38.3-.73.51-1.05l-.74-1.85 1.06-1.06 1.85.74c.32-.2.67-.38 1.05-.51L9.25 2.5z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><circle cx="10" cy="10" r="2.25" stroke="currentColor" stroke-width="1.3"/></svg></div>
+        <!-- generic person avatar -->
+        <div class="ob-avatar-chip"><svg width="16" height="16" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="7" r="3.25" stroke="currentColor" stroke-width="1.5"/><path d="M2.5 18.5c0-4.14 3.36-7.5 7.5-7.5s7.5 3.36 7.5 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
       </div>
     </div>
 
@@ -180,29 +214,6 @@
 
     <!-- Main content -->
     <div class="ob-main">
-
-      <!-- Icon nav rail -->
-      <nav class="ob-nav">
-        <div class="ob-nav-top">
-          <button class="ob-nav-btn ob-nav-btn--active" title="Mail">
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2" y="4" width="14" height="11" rx="1.5" stroke="currentColor" stroke-width="1.4"/><path d="M2 7l7 4 7-4" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
-          </button>
-          <button class="ob-nav-btn" title="Calendar">
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2" y="3" width="14" height="13" rx="1.5" stroke="currentColor" stroke-width="1.4"/><path d="M2 7h14M6 1v4M12 1v4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
-          </button>
-          <button class="ob-nav-btn" title="People">
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="6.5" r="3" stroke="currentColor" stroke-width="1.4"/><path d="M2.5 16.5c0-3.59 2.91-6.5 6.5-6.5s6.5 2.91 6.5 6.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
-          </button>
-          <button class="ob-nav-btn" title="Tasks">
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="3" y="3" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.4"/><path d="M6 9l2.5 2.5 4-4.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-        </div>
-        <div class="ob-nav-bottom">
-          <button class="ob-nav-btn" title="Settings">
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="2.5" stroke="currentColor" stroke-width="1.4"/><path d="M9 2v2M9 14v2M2 9h2M14 9h2M4.1 4.1l1.4 1.4M12.5 12.5l1.4 1.4M4.1 13.9l1.4-1.4M12.5 5.5l1.4-1.4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
-          </button>
-        </div>
-      </nav>
 
       <!-- Folder panel -->
       <div class="ob-folders">
@@ -718,6 +729,8 @@
     </div><!-- /ob-main -->
 
     <div class="ob-overlay"></div>
+
+      </div><!-- /ob-right -->
 
   </div><!-- /outlook-backdrop -->
 

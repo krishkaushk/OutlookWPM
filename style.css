@@ -44,7 +44,7 @@ html, body {
   inset: 0;
   z-index: 0;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   background: url('https://res.public.onecdn.static.microsoft/assets/mail/themes/modern/v3/alpineglow/light.jpg') center / cover no-repeat;
   /* dark mode: url('https://res.public.onecdn.static.microsoft/assets/mail/themes/modern/v3/alpineglow/dark.jpg') */
   pointer-events: none;
@@ -54,8 +54,8 @@ html, body {
 /* Application title bar */
 .ob-appbar {
   height: 56px;
-  background: #ffffff;
-  border-bottom: 1px solid #e0e0e0;
+  background: rgba(255, 255, 255, 0.10);
+  border-bottom: 1px solid rgba(200, 198, 196, 0.18);
   display: flex;
   align-items: center;
   padding: 0 12px;
@@ -86,17 +86,17 @@ html, body {
 }
 
 .ob-searchbar {
-  flex: 1;
-  max-width: 480px;
-  margin: 0 auto;
-  height: 40px;
-  background: #f3f2f1;
-  border: 1px solid transparent;
-  border-radius: 20px;
+  width: 260px;
+  flex-shrink: 0;
+  margin: 0 0 0 4px;
+  height: 32px;
+  background: rgba(243, 242, 241, 0.8);
+  border: 1px solid rgba(200, 198, 196, 0.6);
+  border-radius: 4px;
   display: flex;
   align-items: center;
   gap: 6px;
-  padding: 0 14px;
+  padding: 0 12px;
   font-size: 14px;
   color: #605e5c;
 }
@@ -104,8 +104,8 @@ html, body {
 .ob-appbar-right {
   display: flex;
   align-items: center;
-  min-width: 120px;
   justify-content: flex-end;
+  margin-left: auto;
 }
 
 .ob-appbar-btn {
@@ -115,24 +115,22 @@ html, body {
   align-items: center;
   justify-content: center;
   font-size: 11px;
-  color: #605e5c;
+  color: #242424;
   border-radius: 4px;
   font-family: var(--font-ui);
 }
 
 .ob-avatar-chip {
-  width: 36px;
-  height: 36px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
-  background: #0F6CBD;
-  color: #ffffff;
-  font-size: 11px;
-  font-weight: 600;
+  background: #bdbdbd;
+  color: #424242;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 2px;
-  font-family: var(--font-ui);
+  flex-shrink: 0;
 }
 
 .ob-wc-close:hover { background: #c42b1c; color: #fff; }
@@ -362,6 +360,15 @@ html, body {
 .ob-rsize-arrow + .ob-rsize-arrow { border-top: 1px solid #c8c6c4; }
 .ob-rsize-arrow:hover { background: #e1dfdd; }
 
+/* Right column: appbar + ribbon + main — everything except nav */
+.ob-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+}
+
 /* Main content area */
 .ob-main {
   flex: 1;
@@ -370,17 +377,28 @@ html, body {
   padding-top: 12px;
 }
 
-/* Icon nav rail */
+/* Icon nav rail — full-height first column */
 .ob-nav {
-  width: 56px;
-  background: rgba(255, 255, 255, 0.45);
+  width: 44px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.12) 45%, rgba(255,255,255,0.07) 100%);
+  flex-shrink: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 4px 0;
-  border-right: 1px solid #e0dedd;
+  padding-bottom: 8px;
+  justify-content: flex-start;
+}
+
+/* Waffle logo — matches appbar height to form the L-shape corner */
+.ob-nav-logo {
+  width: 44px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
-  justify-content: space-between;
+  color: #424242;
+  margin-bottom: 4px;
 }
 
 .ob-nav-top, .ob-nav-bottom {
@@ -390,9 +408,10 @@ html, body {
   gap: 2px;
 }
 
+
 .ob-nav-btn {
-  width: 42px;
-  height: 42px;
+  width: 36px;
+  height: 36px;
   border: none;
   background: transparent;
   border-radius: 4px;
@@ -400,16 +419,40 @@ html, body {
   align-items: center;
   justify-content: center;
   color: #605e5c;
+  cursor: pointer;
+  position: relative;
+  transition: background 0.1s;
+}
+
+.ob-nav-btn:hover {
+  background: rgba(0, 0, 0, 0.05);
 }
 
 .ob-nav-btn--active {
-  background: #CFE4FA;
+  background: transparent;
   color: #0F6CBD;
 }
 
-.ob-nav-btn svg {
-  width: 22px;
+.ob-nav-btn--active:hover {
+  background: rgba(15, 108, 189, 0.06);
+}
+
+.ob-nav-btn--active::before {
+  content: '';
+  position: absolute;
+  left: -4px;
+  /* (44px nav - 36px btn) / 2 = 4px margin */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2px;
   height: 22px;
+  background: #0F6CBD;
+  border-radius: 0 3px 3px 0;
+}
+
+.ob-nav-btn svg, .ob-nav-btn img {
+  width: 18px;
+  height: 18px;
 }
 
 /* Folder panel */
@@ -460,7 +503,7 @@ html, body {
   background: #CFE4FA;
   color: #242424;
   font-weight: 500; /* ← SELECTED/HIGHLIGHTED folder item font weight */
-  border-radius: 4px;
+  border-radius: 8px 4px 4px 4px;
   margin: 0 6px;
   padding-left: 23px;
 }
